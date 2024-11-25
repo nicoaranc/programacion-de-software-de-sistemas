@@ -1,0 +1,158 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-25-amd64 #1 SMP Debian 5.10.191-1 (2023-08-16) x86_64 GNU/Linux
+==== make sort-c-wc.run ====
+/opt/riscv/bin/riscv64-unknown-elf-gcc -g -c -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 sort-c-wc.c -o sort-c-wc.o
+/opt/riscv/bin/riscv64-unknown-elf-gcc -g -c -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 test-sort.c -o test-sort.o
+/opt/riscv/bin/riscv64-unknown-elf-gcc -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 -g sort-c-wc.o test-sort.o  -o sort-c-wc
+qemu-riscv32 sort-c-wc
+Primera serie de tests con arreglos de solo 2 frases
+Ambas frases vacias
+Arreglo es:
+  ""
+  ""
+
+Frases iguales
+Arreglo es:
+  "="
+  "="
+Primera frase menor que la segunda
+Arreglo es:
+  ""
+  "a"
+Primera frase mayor que la segunda
+Arreglo es:
+  "b"
+  ""
+
+Frases con palabras de mas de un caracter y varios espacios
+Frase con igual numero de palabras
+Arreglo es:
+  " aa "
+  "  b  "
+Primera frase menor que la segunda
+Arreglo es:
+  "  aaa  "
+  "b b"
+Primera frase mayor que la segunda
+Arreglo es:
+  " abc def "
+  "ggggggg"
+Muchas palabras, menor
+Arreglo es:
+  "  a     b  c  "
+  "d e f g"
+Muchas palabras, mayor
+Arreglo es:
+  "  a  b  c  "
+  "           d    e    "
+
+Segunda serie de tests con chistes cortos
+Aprobado
+
+Tercera serie de tests con todo el arreglo de chistes
+El arreglo desordenado es:
+--------------------------
+Vida : enfermedad mortal de transmision sexual
+Hay 10 tipos de personas : las que entienden binario y las que no
+No creo en el horoscopo porque soy cancer y los cancer somos excepticos
+Para entender la recursividad debe entender la recursividad  
+Erase una vez un cuento corto que vivio feliz para siempre
+    Los 4 puntos cardinales   son 3 : el norte y el sur
+Como se llama   el animalito, lo ignoro, bonito   el loignorito
+El futuro ya   no es lo que solia ser
+Defina  universo y de 2  ejemplos
+Soy inseguro, ¿o no?
+
+
+El arreglo ordenado es:
+-----------------------
+Soy inseguro, ¿o no?
+Defina  universo y de 2  ejemplos
+Vida : enfermedad mortal de transmision sexual
+Para entender la recursividad debe entender la recursividad  
+El futuro ya   no es lo que solia ser
+Como se llama   el animalito, lo ignoro, bonito   el loignorito
+Erase una vez un cuento corto que vivio feliz para siempre
+    Los 4 puntos cardinales   son 3 : el norte y el sur
+No creo en el horoscopo porque soy cancer y los cancer somos excepticos
+Hay 10 tipos de personas : las que entienden binario y las que no
+
+Felicitaciones: todos los tests aprobados
+==== make sort-rv-wc.run ====
+/opt/riscv/bin/riscv64-unknown-elf-gcc -c -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 sort-rv-wc.s -o sort-rv-wc.o
+/opt/riscv/bin/riscv64-unknown-elf-gcc -g -c -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 test-sort.c -o test-sort.o
+/opt/riscv/bin/riscv64-unknown-elf-gcc -Wall -pedantic -std=c2x -march=rv32im -mabi=ilp32 -g sort-rv-wc.o test-sort.o  -o sort-rv-wc
+qemu-riscv32 sort-rv-wc
+Primera serie de tests con arreglos de solo 2 frases
+Ambas frases vacias
+Arreglo es:
+  ""
+  ""
+
+Frases iguales
+Arreglo es:
+  "="
+  "="
+Primera frase menor que la segunda
+Arreglo es:
+  ""
+  "a"
+Primera frase mayor que la segunda
+Arreglo es:
+  "b"
+  ""
+
+Frases con palabras de mas de un caracter y varios espacios
+Frase con igual numero de palabras
+Arreglo es:
+  " aa "
+  "  b  "
+Primera frase menor que la segunda
+Arreglo es:
+  "  aaa  "
+  "b b"
+Primera frase mayor que la segunda
+Arreglo es:
+  " abc def "
+  "ggggggg"
+Muchas palabras, menor
+Arreglo es:
+  "  a     b  c  "
+  "d e f g"
+Muchas palabras, mayor
+Arreglo es:
+  "  a  b  c  "
+  "           d    e    "
+
+Segunda serie de tests con chistes cortos
+Aprobado
+
+Tercera serie de tests con todo el arreglo de chistes
+El arreglo desordenado es:
+--------------------------
+Vida : enfermedad mortal de transmision sexual
+Hay 10 tipos de personas : las que entienden binario y las que no
+No creo en el horoscopo porque soy cancer y los cancer somos excepticos
+Para entender la recursividad debe entender la recursividad  
+Erase una vez un cuento corto que vivio feliz para siempre
+    Los 4 puntos cardinales   son 3 : el norte y el sur
+Como se llama   el animalito, lo ignoro, bonito   el loignorito
+El futuro ya   no es lo que solia ser
+Defina  universo y de 2  ejemplos
+Soy inseguro, ¿o no?
+
+
+El arreglo ordenado es:
+-----------------------
+Soy inseguro, ¿o no?
+Defina  universo y de 2  ejemplos
+Vida : enfermedad mortal de transmision sexual
+Para entender la recursividad debe entender la recursividad  
+El futuro ya   no es lo que solia ser
+Como se llama   el animalito, lo ignoro, bonito   el loignorito
+Erase una vez un cuento corto que vivio feliz para siempre
+    Los 4 puntos cardinales   son 3 : el norte y el sur
+No creo en el horoscopo porque soy cancer y los cancer somos excepticos
+Hay 10 tipos de personas : las que entienden binario y las que no
+
+Felicitaciones: todos los tests aprobados
